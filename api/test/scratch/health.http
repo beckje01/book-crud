@@ -1,0 +1,7 @@
+
+
+# Basic Health Check Get
+GET http://localhost:3000/health
+
+
+
