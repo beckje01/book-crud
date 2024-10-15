@@ -1,7 +1,13 @@
-
-
+###
 # Basic Health Check Get
 GET http://localhost:3000/health
 
 
+###
+# Ready Check
+GET http://localhost:3000/health/ready
 
+
+###
+# Another Health Check
+GET http://localhost:4000/health

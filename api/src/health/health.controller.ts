@@ -17,9 +17,16 @@ export class HealthController {
   @Get()
   @HealthCheck()
   check() {
+    return this.health.check([async () => this.db.pingCheck('postgres')]);
+  }
+
+  @Get("ready")
+  @HealthCheck()
+  ready() {
     return this.health.check([
       async () => this.db.pingCheck('postgres'),
-      async () => this.http.pingCheck('another-api', 'http://localhost:4000/health'),
+      async () =>
+        this.http.pingCheck('another-api', 'http://localhost:4000/health'),
     ]);
   }
 }
